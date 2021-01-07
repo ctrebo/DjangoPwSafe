@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
-class HomePageListView(generic.ListView):
+class HomePageListView(LoginRequiredMixin, generic.ListView):
     model = Password
     template_name = "pwSafe/index.html"
 
@@ -16,3 +16,9 @@ class HomePageListView(generic.ListView):
         context = super(HomePageListView, self).get_context_data()
         context["num_passwords"] = Password.objects.filter(user=self.request.user)
         return context
+
+class PasswordListView(LoginRequiredMixin, generic.ListView):
+    model = Password
+
+    def get_queryset(self):
+        return Password.objects.filter(user=self.request.user)

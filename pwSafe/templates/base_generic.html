@@ -26,7 +26,10 @@
                 <p class="navbar-text text-white mb-0" href="#"> User: {{user.username}}</p>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="{% url 'index'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'passwords'%}">Your passwords</a>
               </li>
               <!-- <li class="nav-item"> -->
                 <!-- <a class="nav-link" href="#">Pricing</a> -->
