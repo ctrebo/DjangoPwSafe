@@ -22,3 +22,6 @@ class PasswordListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Password.objects.filter(user=self.request.user)
+
+class PasswordDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Password

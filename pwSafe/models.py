@@ -16,7 +16,7 @@ class Password(models.Model):
         ordering: ['title']
 
     def get_absolute_url(self):
-        return reverse("password-detail", args=[str(self.id)])
+        return reverse("passwords-detail", args=[str(self.id)])
 
     def __str__(self):
         return self.title

@@ -1,3 +1,9 @@
 body { 
     padding-top: 65px; 
 }
+
+.shadow1 {
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.9);
+}
