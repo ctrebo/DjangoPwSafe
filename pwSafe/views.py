@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.urls import reverse
 from .models import Password
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -25,3 +28,14 @@ class PasswordListView(LoginRequiredMixin, generic.ListView):
 
 class PasswordDetailView(LoginRequiredMixin, generic.DetailView):
     model = Password
+
+class PasswordCreateView(LoginRequiredMixin, CreateView):
+    model = Password
+    fields = ["title", "website", "password", "email", "username"]
+
+    def get_success_url(self):
+        return reverse('passwords')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PasswordCreateView, self).form_valid(form)

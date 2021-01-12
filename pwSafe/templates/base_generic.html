@@ -22,7 +22,7 @@
 
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item px-2">
                 <p class="navbar-text text-white mb-0" href="#"> User: {{user.username}}</p>
               </li>
               <li class="nav-item">
@@ -31,9 +31,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'passwords'%}">Your passwords</a>
               </li>
-              <!-- <li class="nav-item"> -->
-                <!-- <a class="nav-link" href="#">Pricing</a> -->
-              <!-- </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'passwords-create' %}">Add password</a>
+              </li>
               
 
             </ul>
