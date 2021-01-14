@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Password
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -39,3 +39,11 @@ class PasswordCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PasswordCreateView, self).form_valid(form)
+
+class PasswordUpdateView(LoginRequiredMixin, UpdateView):
+    model = Password
+    fields = ["title", "website", "username", "email", "password"]
+
+class PasswordDeleteView(LoginRequiredMixin, DeleteView):
+    model = Password
+    success_url = reverse_lazy('passwords')
